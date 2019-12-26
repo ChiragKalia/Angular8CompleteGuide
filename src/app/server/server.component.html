@@ -1,4 +1,9 @@
-<button class="btn btn-primary" [disabled] = 'IsServerDisabled'>Add Server</button>
+<label>Server Name</label>
+<input type="text" class="form-control" (input)="OnServerNameUpdate($event)"/>
+<p>{{ServerName}}</p>
+<button class="btn btn-primary" [disabled] = 'IsServerDisabled' (click) = "OnServerCreated()">Add Server</button>
 <h3>
+    {{ ServerCreationStatus }}
+    <br>
     The Server {{ ServerNumber }} is currently <span>{{ ServerStatus }}</span>
 </h3>
