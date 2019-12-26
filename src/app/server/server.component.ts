@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
     selector: 'app-server',
@@ -6,25 +6,20 @@ import { Component, OnInit } from '@angular/core';
     styles:[`span{ color: green }
     `]
 })
-export class ServerComponent implements OnInit{
+export class ServerComponent{
     ServerNumber = 10;
     ServerStatus = 'Online';
-    IsServerDisabled = true;
+    ServerCreated = false;
     ServerCreationStatus = "No Server Was Created!";
-    ServerName = '';
+    ServerName = "";
     constructor(){
-        setTimeout(() => {
-            this.IsServerDisabled = false;
-        } , 2000); //Enable button after two seconds.
+
     }
 
     OnServerCreated(){
-        this.ServerCreationStatus = "One Server Was Created!";
+        this.ServerCreated = true;
+        this.ServerCreationStatus = "One Server Was Created! Server Name is "+ this.ServerName;
     }
-    OnServerNameUpdate(event: Event){
-        this.ServerName = (<HTMLInputElement>event.target).value;
-    }
-    ngOnInit(): void {
-                    throw new Error("Method not implemented.");
-                }
+
+
 }
