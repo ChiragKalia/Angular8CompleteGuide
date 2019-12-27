@@ -1,10 +1,11 @@
 <label>Server Name</label>
-<!-- <input type="text" class="form-control" (input)="OnServerNameUpdate($event)"/> -->
 <input type="text" class="form-control" [(ngModel)]="ServerName"/>
 <p>{{ServerName}}</p>
 <button class="btn btn-primary" [disabled] = 'IsServerDisabled' (click) = "OnServerCreated()">Add Server</button>
 <h3>
-    <P *ngIf="ServerCreated">{{ ServerCreationStatus }}</P>
+    <P *ngIf="ServerCreated; else noServer">{{ ServerCreationStatus }}</P>
+    <ng-template #noServer>No Server Was Created!</ng-template>
     <br>
-    The Server {{ ServerNumber }} is currently <span>{{ ServerStatus }}</span>
+    <p>The Server {{ ServerNumber }} is currently <span [ngStyle]="{'color': getColor()}">{{ ServerStatus }}</span></p>
+    <p>The Server {{ ServerNumber }} is currently <span [ngStyle]="{'color': getColor()}">{{ ServerStatus }}</span></p>
 </h3>
